@@ -8,9 +8,9 @@ router.post("/register",register)
 router.post("/login",login)
 router.get('/allusers',AllUsers)
 router.get('/userProfile',Authenticate,getUserProfile)
-router.get('/search/:id',searchUser)
-router.get('/searchAge/:id',searchUserbyAge)
-router.get('searchEmail/:id',searchUserbyEmail)
-router.get('/searchPhone/:id',searchUserbyPhone)
+router.get('/search/:id?',searchUser)
+router.get('/searchAge/:id?',searchUserbyAge)
+router.get('/searchEmail/:id?',searchUserbyEmail)
+router.get('/searchPhone/:id?',searchUserbyPhone)
 
 export default router

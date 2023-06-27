@@ -87,8 +87,13 @@ export const AllUsers=async(req,res)=>{
 export const searchUser=async(req,res)=>{
     const params=req.params.id
     try{
-        const users= await User.find({name:{$regex:req.params.id}})
-        res.send(users)
+        let users;
+        if (!params || params === "") {
+          users = await User.find();
+        } else {
+          users = await User.find({ name: { $regex: params } });
+        }
+        res.send(users);
     }catch (err) {
         console.log(err)
     }
@@ -99,21 +104,32 @@ export const searchUser=async(req,res)=>{
 export const searchUserbyAge=async(req,res)=>{
     const params=req.params.id
     try{
-        const users= await User.find({age:{$regex:req.params.id}})
-        res.send(users)
+        let users;
+        if (!params || params === "") {
+          users = await User.find();
+        } else {
+          users = await User.find({ age: { $regex: params } });
+        }
+        res.send(users);
     }catch (err) {
         console.log(err)
     }
 }
 
 
-// ........................... User Search Method by Age ...............................
+// ........................... User Search Method by Email ...............................
 
 export const searchUserbyEmail=async(req,res)=>{
     const params=req.params.id
+    console.log(params)
     try{
-        const users= await User.find({email:{$regex:req.params.id}})
-        res.send(users)
+        let users;
+        if (!params || params === "") {
+          users = await User.find();
+        } else {
+          users = await User.find({ email: { $regex: params } });
+        }
+        res.send(users);
     }catch (err) {
         console.log(err)
     }
@@ -123,8 +139,13 @@ export const searchUserbyEmail=async(req,res)=>{
 export const searchUserbyPhone=async(req,res)=>{
     const params=req.params.id
     try{
-        const users= await User.find({phone:{$regex:req.params.id}})
-        res.send(users)
+        let users;
+        if (!params || params === "") {
+          users = await User.find();
+        } else {
+          users = await User.find({ phone: { $regex: params } });
+        }
+        res.send(users);
     }catch (err) {
         console.log(err)
     }
